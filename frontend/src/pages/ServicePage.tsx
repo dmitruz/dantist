@@ -1,5 +1,7 @@
 import { Link, useParams } from "react-router-dom";
 import { services } from "../data/services";
+import { prices } from "../data/prices";
+import PriceList from "../components/PriceList";
 import { useAppointment } from "../context/AppointmentContext";
 import Placeholder from "../components/Placeholder";
 
@@ -21,10 +23,15 @@ export default function ServicePage() {
     <section className="section container service-page">
       <Link to="/#services" className="back">← Усі послуги</Link>
       <h1>{service.title}</h1>
-      <Placeholder label={service.title} ratio="16 / 7" />
-      <p className="section__lead">{service.short}</p>
-      {/* TODO: детальний контент сторінки послуги */}
-      <button className="btn btn--primary" onClick={openAppointment}>Записатись на прийом</button>
+      <div className="service-layout">
+        <div className="service-layout__info">
+          <Placeholder label={service.title} ratio="4 / 3" />
+          <p className="section__lead">{service.short}</p>
+          {/* TODO: детальний опис послуги */}
+          <button className="btn btn--primary" onClick={openAppointment}>Записатись на прийом</button>
+        </div>
+        <PriceList items={prices[service.slug] ?? []} />
+      </div>
     </section>
   );
 }
