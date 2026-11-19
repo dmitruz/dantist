@@ -1,4 +1,4 @@
-import { reviews } from "../data/services";
+import { reviews } from "../data/review";
 import { site } from "../config/site";
 
 export default function Reviews() {
