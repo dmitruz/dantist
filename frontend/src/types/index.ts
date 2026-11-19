@@ -17,3 +17,9 @@ export interface Review {
   text: string;
   rating: number;
 }
+
+export interface PriceItem {
+  name: string;
+  price: number;
+  from?: boolean;
+}
