@@ -84,14 +84,17 @@ a {
   transition: background .2s;
 }
 
+
 .btn--primary {
-  background: var(--amber);
-  color: var(--ink);
+  background: var(--teal);
+  color: #fff;
 }
 
 .btn--primary:hover {
-  background: var(--amber-dark);
+  background: var(--teal-dark);
 }
+
+
 
 .btn--primary:disabled {
   opacity: .6;
