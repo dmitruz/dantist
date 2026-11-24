@@ -2,7 +2,6 @@ import { site } from "../config/site";
 import { useAppointment } from "../context/AppointmentContext";
 import Placeholder from "./Placeholder";
 
-// Головне фото: файл src/assets/mainpic.(jpg|jpeg|png|webp)
 const found = import.meta.glob<string>("../assets/mainpic.{jpg,jpeg,png,webp}", {
   eager: true,
   query: "?url",
