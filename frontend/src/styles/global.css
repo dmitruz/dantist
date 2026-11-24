@@ -561,3 +561,18 @@ a {
   object-fit: cover;
   border-radius: var(--radius);
 }
+
+.service-img {
+  display: block;
+  width: 100%;
+  object-fit: cover;
+  border-radius: var(--radius);
+}
+
+.card .service-img {
+  border-radius: 0;
+}
+
+.service-layout .service-img {
+  margin: 0 0 1.5rem;
+}

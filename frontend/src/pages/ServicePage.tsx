@@ -3,7 +3,7 @@ import { services } from "../data/services";
 import { prices } from "../data/prices";
 import PriceList from "../components/PriceList";
 import { useAppointment } from "../context/AppointmentContext";
-import Placeholder from "../components/Placeholder";
+import ServiceImage from "../components/ServiceImage";
 
 export default function ServicePage() {
   const { slug } = useParams();
@@ -25,7 +25,7 @@ export default function ServicePage() {
       <h1>{service.title}</h1>
       <div className="service-layout">
         <div className="service-layout__info">
-          <Placeholder label={service.title} ratio="4 / 3" />
+          <ServiceImage slug={service.slug} title={service.title} ratio="4 / 3" />
           <p className="section__lead">{service.short}</p>
           {/* TODO: детальний опис послуги */}
           <button className="btn btn--primary" onClick={openAppointment}>Записатись на прийом</button>
