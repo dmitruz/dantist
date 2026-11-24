@@ -9,8 +9,7 @@ export default function Services() {
       <div className="container">
         <h2>Які послуги ми надаємо</h2>
         <p className="section__lead">
-          Лікування, протезування, імплантація та профілактика з гарантією, а також швидке виготовлення
-          ортопедичних конструкцій.
+          Лікування, протезування та імплантація зубів. Оберіть послугу, щоб побачити ціни.
         </p>
         <button className="btn btn--primary" onClick={openAppointment}>Записатись на прийом</button>
         <div className="grid grid--cards">
