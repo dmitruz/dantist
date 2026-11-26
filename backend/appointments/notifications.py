@@ -11,8 +11,9 @@ logger = logging.getLogger(__name__)
 def _send(text: str) -> None:
     token = os.getenv("TELEGRAM_BOT_TOKEN")
     chat_ids = [c.strip() for c in os.getenv("TELEGRAM_CHAT_ID", "").split(",") if c.strip()]
+    print(f"[tg] token set={bool(token)} chat_ids={len(chat_ids)}", flush=True)
     if not token or not chat_ids:
-        return  # не налаштовано, просто пропускаємо
+        return
 
     for chat_id in chat_ids:
         try:
@@ -23,10 +24,11 @@ def _send(text: str) -> None:
                 ).encode(),
                 headers={"Content-Type": "application/json"},
             )
-            urllib.request.urlopen(req, timeout=5)
-        except Exception:
+            with urllib.request.urlopen(req, timeout=5) as resp:
+                print(f"[tg] sent to {chat_id}: {resp.status}", flush=True)
+        except Exception as exc:
+            print(f"[tg] FAILED for {chat_id}: {exc!r}", flush=True)
             logger.exception("Telegram notification failed")
-
 
 def notify_new_appointment(appointment) -> None:
     e = html.escape
